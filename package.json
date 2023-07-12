@@ -1,0 +1,76 @@
+{
+  "name": "three-earth",
+  "version": "0.0.4",
+  "description": "",
+  "keywords": [
+    "earth",
+    "three",
+    "d3",
+    "visual",
+    "vue",
+    "echarts"
+  ],
+  "scripts": {
+    "dev": "pnpm run -F @earth/examples dev",
+    "build": "pnpm run -F @earth/main build:lib"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^3.3.4",
+    "three": "^0.135.0",
+    "three-css2drender": "^1.0.0",
+    "three-orbit-controls": "^82.1.0",
+    "uuid": "^8.3.2",
+    "stats.js": "^0.17.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.141.0",
+    "@babel/core": "^7.17.10",
+    "@babel/eslint-parser": "^7.22.5",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@esbuild-kit/cjs-loader": "^2.2.1",
+    "@types/node": "^17.0.41",
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "@vueuse/core": "^9.1.0",
+    "czg": "^1.3.8",
+    "eslint": "^8.43.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-vue": "^9.15.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "sass": "^1.49.9",
+    "typescript": "^4.7.4",
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^3.2.0",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-libcss": "^1.1.1"
+  },
+  "main": "./dist/three-earth.umd.ts",
+  "module": "./dist/three-earth.es.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/three-earth.es.ts",
+      "require": "./lib/three-earth.umd.ts"
+    },
+    "./lib/index.css": {
+      "import": "./lib/index.css",
+      "require": "./lib/index.css"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie 11",
+    "not op_mini all"
+  ]
+}

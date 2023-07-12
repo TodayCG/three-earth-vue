@@ -1,0 +1,14 @@
+{
+    "name": "@earth/examples",
+    "description": "示例程序",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "dev": "vite --host"
+    },
+    "dependencies": {
+        "@earth/main": "workspace:^1.0.0",
+        "three-earth": "^0.0.4",
+        "weitu-visual": "0.0.44"
+    }
+}

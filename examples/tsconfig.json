@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    // 发出符合 ECMAScript 标准的类字段
+    "useDefineForClassFields": true,
+    // 区分文件导入大小写
+    "forceConsistentCasingInFileNames": true,
+    // 跳过所有 .d.ts 文件的检查，主要是跳过 node_modules 目录里的检查
+    "skipLibCheck": true,
+    // 允许 cjs 模块 default 导入
+    "allowSyntheticDefaultImports": true,
+    // 转换 cjs 模块，添加 dedault 导入，因为不需要 tsc 编译，所以没必要开，只需要 allowSyntheticDefaultImports 做检查就行了
+    "esModuleInterop": false,
+    // 继承类重写方法必须写 override 关键字
+    "noImplicitOverride": true,
+    // 确保每个文件都有导入或导出
+    "isolatedModules": true,
+    // 解析 json
+    "resolveJsonModule": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "allowJs": true,
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "baseUrl": ".",
+    "types": [
+      "vite/client"
+    ],
+  },
+  "include": [
+    "*.ts",
+    "/**/*.ts",
+    "/**/*.d.ts",
+    "/**/*.tsx",
+    "/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
