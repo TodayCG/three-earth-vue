@@ -6,7 +6,6 @@ withDefaults(defineProps<{
   opacity: number
   wakeline: boolean
   wakelineNumber: number
-
 }>(), {
     type: 'world',
     color: '#ffffff',

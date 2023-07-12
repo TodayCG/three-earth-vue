@@ -1,15 +1,6 @@
 {
   "name": "three-earth",
   "version": "0.0.12",
-  "description": "",
-  "keywords": [
-    "earth",
-    "three",
-    "d3",
-    "visual",
-    "vue",
-    "echarts"
-  ],
   "scripts": {
     "cz": "czg",
     "dev": "pnpm run -F @earth/examples dev",
@@ -18,7 +9,6 @@
     "lint:fix": "pnpm run lint --fix"
   },
   "author": "",
-  "license": "ISC",
   "dependencies": {
     "vue": "^3.3.4",
     "three": "^0.135.0",
@@ -56,14 +46,6 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-libcss": "^1.1.1"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "browserslist": [
-    "> 1%",
-    "not ie 11",
-    "not op_mini all"
-  ],
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-git"
@@ -71,16 +53,5 @@
   },
   "lint-staged": {
     "*.{vue,ts,jsx,tsx}": "eslint --fix"
-  },
-  "main": "./dist/three-earth.umd.ts",
-  "module": "./dist/three-earth.es.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/three-earth.es.ts",
-      "require": "./dist/three-earth.umd.ts"
-    }
-  },
-  "files": [
-    "dist/*"
-  ]
+  }
 }

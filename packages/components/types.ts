@@ -1,5 +1,5 @@
 
-import { BorderParameter } from '@earth/utils'
+import { BorderParameter } from '../utils/interface'
 
 export interface EarthParameter {
   bloom: boolean

@@ -1,9 +1,9 @@
 import { App, Plugin } from 'vue'
 
-import WtEarth from './three-earth/main.vue'
-import WtEarthBorder from './three-earth/border.vue'
-import WtEarthLine from './three-earth/line.vue'
-import WtEarthBeam from './three-earth/beam.vue'
+import WtEarth from './components/main.vue'
+import WtEarthBorder from './components/border.vue'
+import WtEarthLine from './components/line.vue'
+import WtEarthBeam from './components/beam.vue'
 
 export const EarthMapPlugin: Plugin = {
     install(app: App) {

@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 importers:
 
   .:
@@ -111,9 +107,6 @@ importers:
 
   examples:
     dependencies:
-      '@earth/main':
-        specifier: workspace:^1.0.0
-        version: link:../packages
       element-plus:
         specifier: ^2.3.7
         version: 2.3.7(vue@3.3.4)
@@ -121,14 +114,7 @@ importers:
         specifier: 0.0.12
         version: link:..
 
-  packages:
-
-    dependencies:
-      '@earth/utils':
-        specifier: workspace:^1.0.0
-        version: link:../utils
-
-  utils: {}
+  packages: {}
 
 packages:
 
@@ -6141,3 +6127,7 @@ packages:
     optionalDependencies:
       commander: 9.5.0
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false

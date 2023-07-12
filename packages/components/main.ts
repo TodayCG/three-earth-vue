@@ -1,7 +1,6 @@
 import { v4 } from 'uuid'
 import * as THREE from 'three'
 import { Line2 } from 'three/examples/jsm/lines/Line2'
-import { three, BorderParameter, GridHelperParameter, AxesHelperParameter, AmbientLightParameter, DirectionalLightParameter } from '@earth/utils'
 
 import { EarthInterface } from './interface'
 import {
@@ -20,11 +19,17 @@ import gisChina from './geojson/china'
 import gisWorld from './geojson/world'
 import gisChinaBorder from './geojson/china-border'
 
+import { BorderParameter, GridHelperParameter, AxesHelperParameter, AmbientLightParameter, DirectionalLightParameter } from '../utils/interface'
+import { Scene } '../utils/scene'
+import { ObtControls } '../utils/controls/obt'
+import { createComposer } from '../utils/composer'
+import { DrawLine } from '../utils/line2'
+import { createGradientLine } from '../utils/GradientLine'
 /**
  * 微兔可视化 | 3D地球
  * 黄保霖 2022年6月6日18:12:27
  */
-export class Earth extends three.scene.Scene implements EarthInterface {
+export class Earth extends Scene implements EarthInterface {
     name: string
     mesh!: THREE.Mesh
     earth: THREE.Group
@@ -110,9 +115,9 @@ export class Earth extends three.scene.Scene implements EarthInterface {
             directionalLight
         )
 
-        new three.controls.obt.ObtControls(this.camera, this.webGlRenderer).init()
+        new ObtControls(this.camera, this.webGlRenderer).init()
 
-        this.composer = three.composer.createComposer(this.webGlRenderer, this.scene, this.camera)
+        this.composer = createComposer(this.webGlRenderer, this.scene, this.camera)
     }
 
     public createEarth(earthParameter: EarthParameter): THREE.Group {
@@ -156,13 +161,13 @@ export class Earth extends three.scene.Scene implements EarthInterface {
                             return this.coordinateTransform(pi[0], pi[1])
                         })
                         testData.push(coordinate)
-                        lineGroup.add(three.line2.DrawLine(coordinate, borderParameter))
+                        lineGroup.add(DrawLine(coordinate, borderParameter))
                     } else {
                         osArea.push(this.coordinateTransform(print[0], print[1]))
                     }
                 })
                 if (osArea.length > 0) {
-                    lineGroup.add(three.line2.DrawLine(osArea, borderParameter))
+                    lineGroup.add(DrawLine(osArea, borderParameter))
                 }
             })
             mapGroup.add(lineGroup)
@@ -170,7 +175,7 @@ export class Earth extends three.scene.Scene implements EarthInterface {
 
         if (borderParameter.wakeline) {
             const curve = new THREE.CatmullRomCurve3(testData[0])
-            const { animations, mesh } = three.GradientLine.createGradientLine(curve, borderParameter.wakelineNumber)
+            const { animations, mesh } = createGradientLine(curve, borderParameter.wakelineNumber)
             this.animationGradientSegmentLine = animations
             mesh.forEach(element => {
                 this.earth.add(element)
@@ -366,7 +371,7 @@ export class Earth extends three.scene.Scene implements EarthInterface {
         )
         this.lineCurve.push(curve)
         const points: Array<any> = curve.getSpacedPoints(100)
-        const line2 = three.line2.DrawLine(points, lineParameter)
+        const line2 = DrawLine(points, lineParameter)
         line2.name = line.fromName + '->' + line.toName
         return line2
     }

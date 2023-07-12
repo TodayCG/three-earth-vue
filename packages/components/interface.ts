@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import { BorderParameter, GridHelperParameter, AxesHelperParameter, AmbientLightParameter, DirectionalLightParameter } from '@earth/utils'
 
 import {
     EarthParameter,
@@ -11,6 +10,8 @@ import {
     LightBeamScatterItem,
     LightBeamScatterParameter
 } from './types'
+
+import { BorderParameter, GridHelperParameter, AmbientLightParameter, AxesHelperParameter, DirectionalLightParameter } from '../utils/interface'
 
 export declare interface EarthInterface {
   /**

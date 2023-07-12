@@ -10,7 +10,6 @@ withDefaults(defineProps<{
   endScatterColor: string
   endScatterSize: number
   endScatterOpacity: number
-
 }>(), {
     data: () => [],
     color: '#ffffff',

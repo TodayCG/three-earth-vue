@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { WtEarth, WtEarthBeam, WtEarthBorder, WtEarthLine } from '@earth/main'
+// import { WtEarth, WtEarthBeam, WtEarthBorder, WtEarthLine } from '@earth/main'
 // import { WtEarth, WtEarthBeam, WtEarthBorder, WtEarthLine } from 'three-earth'
 
 const lineData = [
