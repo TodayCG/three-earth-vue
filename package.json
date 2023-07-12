@@ -11,8 +11,11 @@
     "echarts"
   ],
   "scripts": {
+    "cz": "czg",
     "dev": "pnpm run -F @earth/examples dev",
-    "build": "pnpm run -F @earth/main build:lib"
+    "build": "pnpm run -F @earth/main build:lib",
+    "lint": "eslint . --ext .vue,.ts,.jsx,.tsx, --max-warnings 0 --cache",
+    "lint:fix": "pnpm run lint --fix"
   },
   "author": "",
   "license": "ISC",
@@ -72,5 +75,13 @@
     "> 1%",
     "not ie 11",
     "not op_mini all"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
+  },
+  "lint-staged": {
+    "*.{vue,ts,jsx,tsx}": "eslint --fix"
+  }
 }
