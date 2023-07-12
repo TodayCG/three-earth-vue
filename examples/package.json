@@ -8,7 +8,7 @@
     },
     "dependencies": {
         "@earth/main": "workspace:^1.0.0",
-        "three-earth": "^0.0.4",
-        "weitu-visual": "0.0.44"
+        "element-plus": "^2.3.7",
+        "three-earth": "0.0.7"
     }
 }

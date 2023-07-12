@@ -2,9 +2,20 @@
   "name": "@earth/main",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
   "scripts": {
     "build:lib": "vite build"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/three-earth.umd.ts",
+  "module": "./dist/three-earth.es.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/three-earth.es.ts",
+      "require": "./dist/three-earth.umd.ts"
+    }
   },
   "keywords": [],
   "author": "",

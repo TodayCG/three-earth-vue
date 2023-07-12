@@ -6,7 +6,7 @@ import dts from 'vite-plugin-dts'
 
 export default defineConfig({
     build: {
-        outDir: resolve(__dirname, './dist'),
+        outDir: resolve(__dirname, '../dist'),
         cssCodeSplit: true,
         emptyOutDir: true,
         lib: {

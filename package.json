@@ -1,6 +1,6 @@
 {
   "name": "three-earth",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "",
   "keywords": [
     "earth",
@@ -56,18 +56,6 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-libcss": "^1.1.1"
   },
-  "main": "./dist/three-earth.umd.ts",
-  "module": "./dist/three-earth.es.ts",
-  "exports": {
-    ".": {
-      "import": "./lib/three-earth.es.ts",
-      "require": "./lib/three-earth.umd.ts"
-    },
-    "./lib/index.css": {
-      "import": "./lib/index.css",
-      "require": "./lib/index.css"
-    }
-  },
   "publishConfig": {
     "access": "public"
   },
@@ -83,5 +71,16 @@
   },
   "lint-staged": {
     "*.{vue,ts,jsx,tsx}": "eslint --fix"
-  }
+  },
+  "main": "./dist/three-earth.umd.ts",
+  "module": "./dist/three-earth.es.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/three-earth.es.ts",
+      "require": "./dist/three-earth.umd.ts"
+    }
+  },
+  "files": [
+    "./dist"
+  ]
 }
