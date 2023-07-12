@@ -9,6 +9,6 @@
     "dependencies": {
         "@earth/main": "workspace:^1.0.0",
         "element-plus": "^2.3.7",
-        "three-earth": "0.0.7"
+        "three-earth": "0.0.12"
     }
 }

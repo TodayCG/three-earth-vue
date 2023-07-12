@@ -1,29 +1,42 @@
-import { resolve } from 'path'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 
 export default defineConfig({
     build: {
-        outDir: resolve(__dirname, '../dist'),
-        cssCodeSplit: true,
-        emptyOutDir: true,
-        lib: {
-            entry: resolve(__dirname, './index.ts'),
-            name: 'three-earth',
-            formats: ['cjs', 'es', 'umd'],
-            fileName: (format) => `three-earth.${format}.ts`
-        },
+        minify: false,
         rollupOptions: {
             external: ['vue'],
-            output: {
-                globals: { vue: 'Vue' }
-            }
+            input: ['index.ts'],
+            output: [
+                {
+                    format: 'es',
+                    entryFileNames: '[name].mjs',
+                    preserveModules: true,
+                    exports: 'named',
+                    dir: '../dist/es'
+                },
+                {
+                    format: 'cjs',
+                    entryFileNames: '[name].js',
+                    preserveModules: true,
+                    exports: 'named',
+                    dir: '../dist/lib'
+                }
+            ]
+        },
+        lib: {
+            entry: './index.ts'
         }
     },
     plugins: [
-        dts(),
-        vue()
+        vue(),
+        dts({
+            entryRoot: './three-earth',
+            outDir: [
+                '../dist/es/packages/three-earth',
+                '../dist/lib/packages/three-earth'
+            ]
+        })
     ]
 })

@@ -1,6 +1,6 @@
 {
   "name": "three-earth",
-  "version": "0.0.7",
+  "version": "0.0.12",
   "description": "",
   "keywords": [
     "earth",
@@ -81,6 +81,6 @@
     }
   },
   "files": [
-    "./dist"
+    "dist/*"
   ]
 }
