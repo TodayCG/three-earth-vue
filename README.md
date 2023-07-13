@@ -22,6 +22,7 @@
   <a><img src="/public/example05.png" width="24%" /></a>
   <a><img src="/public/example04.png" width="24%" /></a>
   <a><img src="/public/example06.png" width="24%" /></a>
+  <a><img src="/public/example07.png" width="24%" /></a>
 </p>
 
 This is a library for implementing 3D earth based on ThreeJs, suitable for Vue3, which contains earth textures, muddy light, animation, background, halo, starry sky, clouds, light source, geojson, map border, beam of light, scatter, flight line etc.
