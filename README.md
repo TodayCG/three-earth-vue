@@ -50,7 +50,7 @@ import { TeEarth } from 'three-earth'
 - [Earth Beam Documentation](/docs/earth-beam.md)
 
 **Examples**
-[Examples Documentation](/docs/example.md)
+- [Examples Documentation](/docs/example.md)
 
 ## import on demand
 If you only want to import the components you `need`, you can use the on-demand import method.
