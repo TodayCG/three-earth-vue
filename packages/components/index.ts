@@ -1,22 +1,22 @@
 import { App, Plugin } from 'vue'
 
-import TeEarth from './src/main.vue'
-import TeEarthBorder from './src/border.vue'
-import TeEarthLine from './src/line.vue'
-import TeEarthBeam from './src/beam.vue'
+import ThEarth from './src/main.vue'
+import ThEarthBorder from './src/border.vue'
+import ThEarthLine from './src/line.vue'
+import ThEarthBeam from './src/beam.vue'
 
-TeEarth.name = 'TeEarth'
-TeEarthBorder.name = 'TeEarthBorder'
-TeEarthLine.name = 'TeEarthLine'
-TeEarthBeam.name = 'TeEarthBeam'
+ThEarth.name = 'ThEarth'
+ThEarthBorder.name = 'ThEarthBorder'
+ThEarthLine.name = 'ThEarthLine'
+ThEarthBeam.name = 'ThEarthBeam'
 
 export const EarthPlugin: Plugin = {
     install(app: App) {
-        app.component(TeEarth.name, TeEarth)
-        app.component(TeEarthBorder.name, TeEarthBorder)
-        app.component(TeEarthLine.name, TeEarthLine)
-        app.component(TeEarthBeam.name, TeEarthBeam)
+        app.component(ThEarth.name, ThEarth)
+        app.component(ThEarthBorder.name, ThEarthBorder)
+        app.component(ThEarthLine.name, ThEarthLine)
+        app.component(ThEarthBeam.name, ThEarthBeam)
     }
 }
 
-export { TeEarth, TeEarthBorder, TeEarthLine, TeEarthBeam }
+export { ThEarth, ThEarthBorder, ThEarthLine, ThEarthBeam }

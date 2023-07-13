@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { TeEarth, TeEarthBeam, TeEarthBorder, TeEarthLine } from 'three-earth/packages/components'
+import { ThEarth, ThEarthBeam, ThEarthBorder, ThEarthLine } from 'three-earth/packages/components'
 
 const lineData = [
     {
@@ -777,26 +777,26 @@ const beamScatterData = [
 ]
 </script>
 <template>
-    <te-earth
+    <th-earth
         class="earth-wrap"
         :stats="true"
         starry-sky
         :aperture="true"
         cloud-cover
     >
-        <!-- <te-earth-border type="china" /> -->
-        <te-earth-border geojson="world" color="#3ba3d1" />
-        <te-earth-border
+        <!-- <th-earth-border type="china" /> -->
+        <th-earth-border geojson="world" color="#3ba3d1" />
+        <th-earth-border
             geojson="china-border"
             color="#FF5823"
             :width="2"
             :wakeline="true"
         />
         <!-- 轨迹线 -->
-        <te-earth-line :data="lineData" color="#fff000" :width="3" />
+        <th-earth-line :data="lineData" color="#fff000" :width="3" />
         <!-- 发光柱 -->
-        <te-earth-beam :data="beamScatterData" color="#00FFE5" />
-    </te-earth>
+        <th-earth-beam :data="beamScatterData" color="#00FFE5" />
+    </th-earth>
 </template>
 <style lang="scss" scoped>
 .earth-wrap {

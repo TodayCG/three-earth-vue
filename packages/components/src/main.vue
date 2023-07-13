@@ -264,7 +264,7 @@ const createEarth = (): void => {
     weiTuEarth = new Earth(main, parameter).start()
 }
 const createEarthBorder = async (): Promise<void> => {
-    const borders: Array<any> = getSlotsByName('TeEarthBorder')
+    const borders: Array<any> = getSlotsByName('ThEarthBorder')
     borders.forEach(async (border: any) => {
         const propsGeojson: string = border.props?.geojson || border.type.props.geojson.default
         const borderParameter = {
@@ -283,7 +283,7 @@ const createEarthBorder = async (): Promise<void> => {
     console.log(earthParameter)
 }
 const createEarthLine = (): void => {
-    const lines: Array<any> = getSlotsByName('TeEarthLine')
+    const lines: Array<any> = getSlotsByName('ThEarthLine')
     lines.forEach((border: any) => {
         const dataSource: Array<FlightLinesItem> = border.props?.data
         const flightLinesParameter: FlightLinesParameter = {
@@ -308,7 +308,7 @@ const createEarthLine = (): void => {
     })
 }
 const createEarthBeam = (): void => {
-    const Beams: Array<any> = getSlotsByName('TeEarthBeam')
+    const Beams: Array<any> = getSlotsByName('ThEarthBeam')
     Beams.forEach((beam: any) => {
         const dataSource: Array<LightBeamScatterItem> = beam.props?.data || beam.type.props.data.default
 

@@ -48,10 +48,10 @@ pnpm add three-earth
 
 ```html
 <script lang="ts" setup>
-import { TeEarth } from 'three-earth'
+import { ThEarth } from 'three-earth'
 </script>
 <template>
-  <te-earth style="height: 300px;" />
+  <th-earth style="height: 300px;" />
 </template>
 ```
 
