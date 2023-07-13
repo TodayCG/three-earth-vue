@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { TeEarth, TeEarthBeam, TeEarthBorder, TeEarthLine } from '@earth/main'
-
 const lineData = [
     {
         fromName: '北京市',
