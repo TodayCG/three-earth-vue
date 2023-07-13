@@ -117,12 +117,6 @@ importers:
       element-plus:
         specifier: ^2.3.7
         version: 2.3.7(vue@3.3.4)
-      three-earth:
-        specifier: 0.0.12
-        version: link:..
-      three-earth-plus:
-        specifier: 0.0.8
-        version: 0.0.8
 
   packages: {}
 
@@ -1165,10 +1159,6 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
-
-  /three-earth-plus@0.0.8:
-    resolution: {integrity: sha512-zHpJdYQn92+dxEGHEh8Etaj2zypNXVahS94fXSEEDgGBTIq5pwT3skW1/p+BfLjdyFhqhy4RwOHb9E5fkeq8tg==}
-    dev: false
 
   /to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}

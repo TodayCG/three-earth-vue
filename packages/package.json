@@ -1,7 +1,7 @@
 {
-  "name": "three-earth-plus",
-  "version": "0.0.12",
-  "description": "",
+  "name": "three-earth",
+  "version": "0.0.1",
+  "description": "A 3d earth component developed based on Threejs, suitable for vue.",
   "keywords": [
     "earth",
     "three",
@@ -11,6 +11,10 @@
     "echarts"
   ],
   "license": "ISC",
+  "homepage": "https://github.com/TodayCG/three-earth-vue",
+  "bugs": {
+    "url": "https://github.com/TodayCG/three-earth-vue/issues"
+  },
   "module": "./dist/three-earth.es.ts",
   "main": "./dist/three-earth.umd.ts",
   "types": "./dist/index.d.ts",
