@@ -8,6 +8,7 @@
     },
     "dependencies": {
         "element-plus": "^2.3.7",
-        "three-earth": "0.0.12"
+        "three-earth": "0.0.12",
+        "three-earth-plus": "0.0.8"
     }
 }

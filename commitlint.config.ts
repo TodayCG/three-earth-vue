@@ -1,5 +1,5 @@
 export default {
-    ignores: [commit => commit.includes('init')], // 忽略带有init的信息
+    ignores: [(commit: string | string[]) => commit.includes('init')], // 忽略带有init的信息
     extends: ['@commitlint/config-conventional'],
     rules: {
         'body-leading-blank': [1, 'always'],

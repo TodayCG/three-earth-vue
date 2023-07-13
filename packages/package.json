@@ -1,6 +1,6 @@
 {
   "name": "three-earth-plus",
-  "version": "0.0.1",
+  "version": "0.0.9",
   "description": "",
   "keywords": [
     "earth",
@@ -11,16 +11,18 @@
     "echarts"
   ],
   "license": "ISC",
-  "main": "./dist/three-earth.umd.ts",
   "module": "./dist/three-earth.es.ts",
+  "main": "./dist/three-earth.umd.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/three-earth.es.ts",
       "require": "./dist/three-earth.umd.ts"
     }
   },
   "scripts": {
-    "build:lib": "vite build"
+    "build": "vite build"
   },
   "author": "huangbaolin",
   "publishConfig": {
@@ -32,6 +34,6 @@
     "not op_mini all"
   ],
   "files": [
-    "dist/*"
+    "dist"
   ]
 }
