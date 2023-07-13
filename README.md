@@ -64,8 +64,10 @@ import { ThEarth, ThEarthBorder, ThEarthLine, ThEarthBeam } from 'three-earth'
 ...
 ```
 
+<div>
 ![Earth Documentation](/public/example01.png)
 ![Earth Documentation](/public/example02.png)
 ![Earth Documentation](/public/example03.png)
 ![Earth Documentation](/public/example04.png)
 ![Earth Documentation](/public/example05.png)
+</div>
