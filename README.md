@@ -31,4 +31,28 @@ yarn add three-earth
 pnpm add three-earth
 ```
 
+## Quick Start
+
+```html
+<script lang="ts" setup>
+import { TeEarth } from 'three-earth'
+</script>
+<template>
+  <te-earth style="height: 300px;" />
+</template>
+```
+
 ## Documentation
+
+
+## import on demand
+If you only want to import the components you `need`, you can use the on-demand import method.
+
+```javascript
+// main.ts
+import App from './App.vue'
+import { createApp } from 'vue'
+import { ThEarth, ThEarthBorder, ThEarthLine, ThEarthBeam } from 'three-earth'
+
+...
+```
