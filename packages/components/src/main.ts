@@ -327,12 +327,12 @@ export class Earth extends Scene implements EarthInterface {
         )
         const callout = this.createScatterPointMesh(
             'in',
-            'http://172.16.16.166/update/resource/texture/Callout.png',
+            'https://github.com/TodayCG/three-earth-vue/blob/main/packages/components/src/assets/Callout.png?raw=true',
             scatterParameter
         )
         const calloutAperture = this.createScatterPointMesh(
             'out',
-            'http://172.16.16.166/update/resource/texture/CalloutAperture.png',
+            'https://github.com/TodayCG/three-earth-vue/blob/main/packages/components/src/assets/CalloutAperture.png?raw=true',
             scatterParameter
         )
 
@@ -397,7 +397,7 @@ export class Earth extends Scene implements EarthInterface {
     private createLightBeam(vector3: THREE.Vector3, value: number, lightBeamParameter: LightBeamParameter): THREE.Group {
         const group = new THREE.Group()
         const height = value ? lightBeamParameter.baseHeight * value : lightBeamParameter.baseHeight
-        const LightBeamTexture = new THREE.TextureLoader().load('http://172.16.16.166/update/resource/texture/LightColumn.png')
+        const LightBeamTexture = new THREE.TextureLoader().load('https://github.com/TodayCG/three-earth-vue/blob/main/packages/components/src/assets/LightColumn.png?raw=true')
         const lightBeamGeometry = new THREE.PlaneGeometry(lightBeamParameter.radius, height)
         lightBeamGeometry.rotateX(Math.PI / 2)
         lightBeamGeometry.translate(0, 0, height / 2)
