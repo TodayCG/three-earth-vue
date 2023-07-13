@@ -19,12 +19,12 @@ import gisChina from './geojson/china'
 import gisWorld from './geojson/world'
 import gisChinaBorder from './geojson/china-border'
 
-import { BorderParameter, GridHelperParameter, AxesHelperParameter, AmbientLightParameter, DirectionalLightParameter } from '../utils/interface'
-import { Scene } from '../utils/scene'
-import { ObtControls } from '../utils/controls/obt'
-import { createComposer } from '../utils/composer'
-import { DrawLine } from '../utils/line2'
-import { createGradientLine, startAnimationGradientLine } from '../utils/GradientLine'
+import { BorderParameter, GridHelperParameter, AxesHelperParameter, AmbientLightParameter, DirectionalLightParameter } from '../../utils/interface'
+import { Scene } from '../../utils/scene'
+import { ObtControls } from '../../utils/controls/obt'
+import { createComposer } from '../../utils/composer'
+import { DrawLine } from '../../utils/line2'
+import { createGradientLine, startAnimationGradientLine } from '../../utils/GradientLine'
 /**
  * 微兔可视化 | 3D地球
  * 黄保霖 2022年6月6日18:12:27
