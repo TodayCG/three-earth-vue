@@ -1,7 +1,7 @@
 {
   "name": "three-earth-vue",
   "version": "0.0.1",
-  "description": "A 3d earth component developed based on Threejs, suitable for vue.",
+  "description": "A 3d earth component developed based on Threejs, suitable for vue3.x.",
   "keywords": [
     "earth",
     "three",
