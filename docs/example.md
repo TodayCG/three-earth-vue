@@ -182,7 +182,7 @@ The earth stroke is completed by using the `th-earth-border` component, which su
 
 
 
-```vue
+```html
 <template>
     <th-earth
        :stats="true"
@@ -207,7 +207,7 @@ The `th-earth-line` component loads the trajectory module, passes in the latitud
 
 
 
-```vue
+```html
 <template>
    <th-earth
      :stats="true"
@@ -249,7 +249,7 @@ The `th-earth-beam` component renders the luminous beam data set, and the latitu
 
 
 
-```vue
+```html
 <template>
    <th-earth
      :stats="true"

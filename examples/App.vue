@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { TeEarth, TeEarthBeam, TeEarthBorder, TeEarthLine } from 'three-earth/packages'
 const lineData = [
     {
         fromName: '北京市',
@@ -16,7 +17,7 @@ const beamScatterData = [
 ]
 </script>
 <template>
-    <wt-earth
+    <te-earth
         class="earth-wrap"
         :radius="70"
         :stats="true"
@@ -26,14 +27,14 @@ const beamScatterData = [
         grid-helper
         axes-helper
     >
-        <wt-earth-border type="china" />
-        <wt-earth-border type="world" color="#3ba3d1" />
-        <wt-earth-border type="china-border" color="yellow" :width="3" />
+        <te-earth-border type="china" />
+        <te-earth-border type="world" color="#3ba3d1" />
+        <te-earth-border type="china-border" color="yellow" :width="3" />
         <!-- 轨迹线 -->
-        <wt-earth-line :data="lineData" color="#ffffff" :width="3" />
+        <te-earth-line :data="lineData" color="#ffffff" :width="3" />
         <!-- 发光柱 -->
-        <wt-earth-beam :data="beamScatterData" color="red" />
-    </wt-earth>
+        <te-earth-beam :data="beamScatterData" color="red" />
+    </te-earth>
 </template>
 <style lang="scss" scoped>
 .earth-wrap {

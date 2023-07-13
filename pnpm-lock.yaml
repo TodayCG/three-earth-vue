@@ -117,6 +117,9 @@ importers:
       element-plus:
         specifier: ^2.3.7
         version: 2.3.7(vue@3.3.4)
+      three-earth:
+        specifier: workspace:^
+        version: link:..
 
   packages: {}
 
