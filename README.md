@@ -68,6 +68,7 @@ import { ThEarth, ThEarthBorder, ThEarthLine, ThEarthBeam } from 'three-earth'
   <a><img src="/public/example01.png" width="24%" /></a>
   <a><img src="/public/example02.png" width="24%" /></a>
   <a><img src="/public/example03.png" width="24%" /></a>
-  <a><img src="/public/example04.png" width="24%" /></a>
   <a><img src="/public/example05.png" width="24%" /></a>
+  <a><img src="/public/example04.png" width="24%" /></a>
+  <a><img src="/public/example06.png" width="24%" /></a>
 </p>
