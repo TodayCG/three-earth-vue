@@ -8,14 +8,12 @@ The three-dimensional visualized earth based on ThreeJS not only includes the ba
 
 默认地球只需指定标签即可显示，可使用 `texture` 来修改地球贴图效果。
 
-:::demo 
 
-```vue
+```html
 <template>
   <th-earth :stats="true" :animation="false" />
 </template>
 ```
-:::
 
 ## 属性
 
@@ -77,9 +75,9 @@ directionalLightColor | 平行光颜色 | string | -  | #ffffff |
 
 完整体演示包含了 `Earth` 所有组件和特效。
 
-:::demo 
+ 
 
-```vue
+```html
 <template>
   <th-earth 
     :radius="70"
@@ -127,29 +125,29 @@ const beamScatter = [
 ]
 </script>
 ```
-:::
+
 
 ## 背景颜色
 
 使用 `background` 属性来指定背景颜色。
 
-:::demo 
+ 
 
-```vue
+```html
 <template>
   <th-earth :stats="true" background="#ffffff" />
 </template>
 ```
-:::
+
 
 
 ## 地球贴图
 
 使用 `texture` 属性来地球球体贴图图片地址，可以是在线地址和本地地址。
 
-:::demo 
+ 
 
-```vue
+```html
 <template>
   <th-earth 
     :stats="true"
@@ -160,7 +158,7 @@ const beamScatter = [
   />
 </template>
 ```
-:::
+
 
 ## 星空背景
 
@@ -168,22 +166,22 @@ const beamScatter = [
 
 使用 `starry-sky` 开启星空背景，星空背景由若干个点组成，可使用可通过 `number` 属性定义数量，以及 `大小`、 `透明度`、`动画` 和 `starry-sky-texture` 自定义星空背景的贴图，默认包含贴图。
 
-:::demo 
+ 
 
-```vue
+```html
 <template>
   <th-earth :stats="true" starry-sky />
 </template>
 ```
-:::
+
 
 ## 辉光特效
 
 辉光特效通过`bloom`属性开启，让场景更加的立体生动，色彩渲染的更加鲜明，一般在配合透明贴图或者线框模式下使用效果良好。
 
-:::demo 
+ 
 
-```vue
+```html
 <template>
    <th-earth 
       :stats="true"
@@ -201,21 +199,21 @@ const beamScatter = [
     </th-earth>
 </template>
 ```
-:::
+
 
 ## 地球光晕
 
 `THREE.SpriteMaterial` `THREE.Sprite`
 
 使用 `aperture` 属性开启光晕显示，光晕是地球球体周边散发出来的光的效果，可调节 `强度` 、 `颜色` 以及 `自定义贴图`  `aperture-texture`。默认包含贴图。
-:::demo 
+ 
 
-```vue
+```html
 <template>
   <th-earth :stats="true" aperture />
 </template>
 ```
-:::
+
 
 
 ## 大气云层
@@ -224,14 +222,14 @@ const beamScatter = [
 
 使用 `cloud-cover` 属性开启云层显示，云层始终在地球球体上层，可以其 `颜色` 、 `贴图` 、 `透明度` 、  `动画` 来自定义云层的渲染方式。`starry-sky-texture` 来自定义云层的贴图。默认包含贴图。
 
-:::demo 
+ 
 
-```vue
+```html
 <template>
   <th-earth :stats="true" starry-sky aperture cloud-cover />
 </template>
 ```
-:::
+
 
 ## 场景辅助
 
@@ -239,9 +237,9 @@ const beamScatter = [
 
 通过使用 `grid-helper` ， `axes-helper` 属性分别开启 `网格辅助` 和 `坐标辅助` 功能。便于更好的进行场景描述。
 
-:::demo 
+ 
 
-```vue
+```html
 <template>
   <th-earth 
     :stats="true"
@@ -250,4 +248,4 @@ const beamScatter = [
   />
 </template>
 ```
-:::
+
