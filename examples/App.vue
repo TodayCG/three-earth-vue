@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { NiEarth, NiEarthBeam, NiEarthBorder, NiEarthLine } from '@earth/main'
+import { TeEarth, TeEarthBeam, TeEarthBorder, TeEarthLine } from '@earth/main'
 
 const lineData = [
     {

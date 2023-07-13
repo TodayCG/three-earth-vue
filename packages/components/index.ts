@@ -1,22 +1,22 @@
 import { App, Plugin } from 'vue'
 
-import NiEarth from './src/main.vue'
-import NiEarthBorder from './src/border.vue'
-import NiEarthLine from './src/line.vue'
-import NiEarthBeam from './src/beam.vue'
+import TeEarth from './src/main.vue'
+import TeEarthBorder from './src/border.vue'
+import TeEarthLine from './src/line.vue'
+import TeEarthBeam from './src/beam.vue'
 
-NiEarth.name = 'NiEarth'
-NiEarthBorder.name = 'NiEarthBorder'
-NiEarthLine.name = 'NiEarthLine'
-NiEarthBeam.name = 'NiEarthBeam'
+TeEarth.name = 'TeEarth'
+TeEarthBorder.name = 'TeEarthBorder'
+TeEarthLine.name = 'TeEarthLine'
+TeEarthBeam.name = 'TeEarthBeam'
 
 export const EarthPlugin: Plugin = {
     install(app: App) {
-        app.component(NiEarth.name, NiEarth)
-        app.component(NiEarthBorder.name, NiEarthBorder)
-        app.component(NiEarthLine.name, NiEarthLine)
-        app.component(NiEarthBeam.name, NiEarthBeam)
+        app.component(TeEarth.name, TeEarth)
+        app.component(TeEarthBorder.name, TeEarthBorder)
+        app.component(TeEarthLine.name, TeEarthLine)
+        app.component(TeEarthBeam.name, TeEarthBeam)
     }
 }
 
-export { NiEarth, NiEarthBorder, NiEarthLine, NiEarthBeam }
+export { TeEarth, TeEarthBorder, TeEarthLine, TeEarthBeam }
