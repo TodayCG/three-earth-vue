@@ -24,7 +24,7 @@ import { Scene } from '../utils/scene'
 import { ObtControls } from '../utils/controls/obt'
 import { createComposer } from '../utils/composer'
 import { DrawLine } from '../utils/line2'
-import { createGradientLine } from '../utils/GradientLine'
+import { createGradientLine, startAnimationGradientLine } from '../utils/GradientLine'
 /**
  * 微兔可视化 | 3D地球
  * 黄保霖 2022年6月6日18:12:27
@@ -478,7 +478,7 @@ export class Earth extends Scene implements EarthInterface {
             }
             // 渐变分段线动画
             if (this.animationGradientSegmentLine) {
-                three.GradientLine.startAnimationGradientLine(this.animationGradientSegmentLine)
+                startAnimationGradientLine(this.animationGradientSegmentLine)
             }
             this.webGlRenderer.autoClear = false
             this.webGlRenderer.clear()
