@@ -58,7 +58,7 @@ import { TeEarth } from 'three-earth'
 **Examples**
 - [Examples Documentation](/docs/example.md)
 
-## import on demand
+## Import separately
 If you only want to import the components you `need`, you can use the on-demand import method.
 
 ```javascript
