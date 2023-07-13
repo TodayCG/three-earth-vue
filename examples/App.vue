@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { TeEarth, TeEarthBeam, TeEarthBorder, TeEarthLine } from 'three-earth/packages'
+import { TeEarth, TeEarthBeam, TeEarthBorder, TeEarthLine } from 'three-earth/packages/components'
 const lineData = [
     {
         fromName: '北京市',
@@ -780,7 +780,7 @@ const beamScatterData = [
         class="earth-wrap"
         :stats="true"
         starry-sky
-        aperture
+        :aperture="true"
         cloud-cover
     >
         <te-earth-border type="china" />

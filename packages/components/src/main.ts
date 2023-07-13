@@ -18,6 +18,9 @@ import {
 import gisChina from './geojson/china'
 import gisWorld from './geojson/world'
 import gisChinaBorder from './geojson/china-border'
+import { textureCallout } from './base64/Callout'
+import { textureCalloutAperture } from './base64/CalloutAperture'
+import { textureLightColumn } from './base64/LightColumn'
 
 import { BorderParameter, GridHelperParameter, AxesHelperParameter, AmbientLightParameter, DirectionalLightParameter } from '../../utils/interface'
 import { Scene } from '../../utils/scene'
@@ -25,6 +28,7 @@ import { ObtControls } from '../../utils/controls/obt'
 import { createComposer } from '../../utils/composer'
 import { DrawLine } from '../../utils/line2'
 import { createGradientLine, startAnimationGradientLine } from '../../utils/GradientLine'
+
 /**
  * 微兔可视化 | 3D地球
  * 黄保霖 2022年6月6日18:12:27
@@ -95,20 +99,22 @@ export class Earth extends Scene implements EarthInterface {
         this.cloudCoverParameter = parameter.cloudCoverParameter
         this.starrySkyParameter = parameter.starrySkyParameter
 
-        const earth = this.createEarth(this.earthParameter)
-        const aperture = this.createAperture(this.apertureParameter, this.earthParameter)
-        const cloudCover = this.createCloudCover(this.cloudCoverParameter, this.earthParameter)
-        const starrySky = this.createStarrySky(this.starrySkyParameter)
+        this.createEarth(this.earthParameter).then(earth => {
+            this.add(earth)
+        })
+        this.createAperture(this.apertureParameter, this.earthParameter)
+        this.createCloudCover(this.cloudCoverParameter, this.earthParameter).then(cloudCover => {
+            this.add(cloudCover)
+        })
+        this.createStarrySky(this.starrySkyParameter).then(starrySky => {
+            this.add(starrySky)
+        })
         const gridHelper = this.createGridHelper(parameter.gridHelperParameter)
         const axesHelper = this.createAxesHelper(parameter.axesHelperParameter)
         const ambientLight = this.createAmbientLight(parameter.ambientLightParameter)
         const directionalLight = this.createDirectionalLight(parameter.directionalLightParameter)
 
         this.add(
-            earth,
-            cloudCover,
-            aperture,
-            starrySky,
             gridHelper,
             axesHelper,
             ambientLight,
@@ -120,7 +126,7 @@ export class Earth extends Scene implements EarthInterface {
         this.composer = createComposer(this.webGlRenderer, this.scene, this.camera)
     }
 
-    public createEarth(earthParameter: EarthParameter): THREE.Group {
+    public async createEarth(earthParameter: EarthParameter): Promise<THREE.Group> {
         const earth = this.earth.getObjectByName(this.name)
         if (earth) this.earth.remove(earth)
 
@@ -129,7 +135,13 @@ export class Earth extends Scene implements EarthInterface {
             earthParameter.subdivision,
             earthParameter.subdivision
         )
-        const map = earthParameter.texture === false ? {} : { map: new THREE.TextureLoader().load(earthParameter.texture.toString()) }
+
+        let map = {}
+        if (earthParameter.texture !== false) {
+            const texture: string = earthParameter.texture === 'default' ? ((await import('./base64/Earth')).texture) : earthParameter.texture as string
+            map = { map: new THREE.TextureLoader().load(texture) }
+        }
+        console.log(map)
         this.material = new THREE.MeshStandardMaterial({
             ...map,
             color: new THREE.Color(earthParameter.color),
@@ -142,7 +154,6 @@ export class Earth extends Scene implements EarthInterface {
         this.mesh.name = this.name
         this.earth.add(this.mesh)
         this.earth.rotation.set(0, 3.6, 0)
-
         return this.earth
     }
 
@@ -186,12 +197,12 @@ export class Earth extends Scene implements EarthInterface {
         return mapGroup
     }
 
-    public createAperture(apertureParameter: ApertureParameter, earthParameter: EarthParameter): THREE.Sprite | undefined {
+    public async createAperture(apertureParameter: ApertureParameter, earthParameter: EarthParameter): Promise<void> {
         const aperture = this.scene.getObjectByName(this.apertureName)
         if (aperture) this.scene.remove(aperture)
-        if (apertureParameter.texture && apertureParameter.show) {
+        if (apertureParameter.show) {
             this.apertureMaterial = new THREE.SpriteMaterial({
-                map: new THREE.TextureLoader().load(apertureParameter.texture),
+                map: new THREE.TextureLoader().load(apertureParameter.texture === 'default' ? ((await import('./base64/Aperture')).texture) : apertureParameter.texture as string),
                 transparent: apertureParameter.transparent,
                 color: new THREE.Color(apertureParameter.color),
                 opacity: apertureParameter.opacity,
@@ -204,12 +215,11 @@ export class Earth extends Scene implements EarthInterface {
                 1
             )
             this.apertureSprite.name = this.apertureName
-            return this.apertureSprite
+            this.add(this.apertureSprite)
         }
-        return undefined
     }
 
-    public createCloudCover(cloudCoverParameter: CloudCoverParameter, earthParameter: EarthParameter): THREE.Mesh | undefined {
+    public async createCloudCover(cloudCoverParameter: CloudCoverParameter, earthParameter: EarthParameter): Promise<THREE.Mesh<THREE.BufferGeometry, THREE.Material | THREE.Material[]>> {
         const cloud = this.earth.getObjectByName(this.cloudCoverName)
         if (cloud) this.earth.remove(cloud)
         if (cloudCoverParameter.texture && cloudCoverParameter.show) {
@@ -217,8 +227,9 @@ export class Earth extends Scene implements EarthInterface {
                 earthParameter.radius * 0.1 + 0.1,
                 earthParameter.subdivision,
                 earthParameter.subdivision)
+
             this.cloudCoverMaterial = new THREE.MeshStandardMaterial({
-                map: cloudCoverParameter.texture ? new THREE.TextureLoader().load(cloudCoverParameter.texture) : undefined,
+                map: new THREE.TextureLoader().load(cloudCoverParameter.texture === 'default' ? ((await import('./base64/CloudCover')).texture) : cloudCoverParameter.texture as string),
                 color: new THREE.Color(cloudCoverParameter.color),
                 side: THREE.DoubleSide,
                 transparent: cloudCoverParameter.transparent,
@@ -232,7 +243,7 @@ export class Earth extends Scene implements EarthInterface {
         return undefined
     }
 
-    public createStarrySky(starrySkyParameter: StarrySkyParameter): THREE.Points | undefined {
+    public async createStarrySky(starrySkyParameter: StarrySkyParameter): Promise<THREE.Points<THREE.BufferGeometry, THREE.Material | THREE.Material[]>> {
         const starrySky = this.scene.getObjectByName(this.starrySkyName)
         if (starrySky) this.scene.remove(starrySky)
         if (starrySkyParameter.show) {
@@ -255,8 +266,9 @@ export class Earth extends Scene implements EarthInterface {
             this.starrySkyGeometry.setAttribute('color',
                 new THREE.Float32BufferAttribute(randomColors, 3)
             )
+
             this.starrySkyMaterial = new THREE.PointsMaterial({
-                map: new THREE.TextureLoader().load(starrySkyParameter.texture),
+                map: new THREE.TextureLoader().load(starrySkyParameter.texture === 'default' ? ((await import('./base64/StarrySky')).texture) : starrySkyParameter.texture as string),
                 size: starrySkyParameter.size,
                 transparent: true,
                 opacity: starrySkyParameter.opacity,
@@ -325,23 +337,15 @@ export class Earth extends Scene implements EarthInterface {
             new THREE.Vector3(0, 0, 1),
             new THREE.Vector3(vector3.x, vector3.y, vector3.z).normalize()
         )
-        const callout = this.createScatterPointMesh(
-            'in',
-            'https://github.com/TodayCG/three-earth-vue/blob/main/packages/components/src/assets/Callout.png?raw=true',
-            scatterParameter
-        )
-        const calloutAperture = this.createScatterPointMesh(
-            'out',
-            'https://github.com/TodayCG/three-earth-vue/blob/main/packages/components/src/assets/CalloutAperture.png?raw=true',
-            scatterParameter
-        )
+        const callout = this.createScatterPointMesh('in', textureCallout, scatterParameter)
+        const calloutAperture = this.createScatterPointMesh('out', textureCalloutAperture, scatterParameter)
 
         this.scatterPoint.push(calloutAperture)
         return scatterPoint.add(callout, calloutAperture)
     }
 
-    private createScatterPointMesh(type: string, texturePath: string, scatterParameter: ScatterParameter): THREE.Mesh {
-        const texture = new THREE.TextureLoader().load(texturePath)
+    private createScatterPointMesh(type: string, textureStr: string, scatterParameter: ScatterParameter): THREE.Mesh {
+        const texture = new THREE.TextureLoader().load(textureStr)
         const geometry = new THREE.PlaneBufferGeometry(1, 1)
         geometry.rotateX(Math.PI)
         const material = new THREE.MeshBasicMaterial({
@@ -397,7 +401,7 @@ export class Earth extends Scene implements EarthInterface {
     private createLightBeam(vector3: THREE.Vector3, value: number, lightBeamParameter: LightBeamParameter): THREE.Group {
         const group = new THREE.Group()
         const height = value ? lightBeamParameter.baseHeight * value : lightBeamParameter.baseHeight
-        const LightBeamTexture = new THREE.TextureLoader().load('https://github.com/TodayCG/three-earth-vue/blob/main/packages/components/src/assets/LightColumn.png?raw=true')
+        const LightBeamTexture = new THREE.TextureLoader().load(textureLightColumn)
         const lightBeamGeometry = new THREE.PlaneGeometry(lightBeamParameter.radius, height)
         lightBeamGeometry.rotateX(Math.PI / 2)
         lightBeamGeometry.translate(0, 0, height / 2)

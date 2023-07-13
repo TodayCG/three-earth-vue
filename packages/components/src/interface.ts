@@ -151,7 +151,7 @@ export declare interface EarthInterface {
    * @param earthParameter 材质参数
    * @returns Group 地球
    */
-  createEarth(earthParameter: EarthParameter): THREE.Group
+  createEarth(earthParameter: EarthParameter): Promise<THREE.Group>
   /**
    * 创建地球描边
    * @param gis geojson地理数据
@@ -165,20 +165,20 @@ export declare interface EarthInterface {
    * @param earthParameter 球体参数
    * @returns Sprite 光晕
    */
-  createAperture(apertureParameter: ApertureParameter, earthParameter: EarthParameter): THREE.Sprite | undefined
+  createAperture(apertureParameter: ApertureParameter, earthParameter: EarthParameter): Promise<void>
   /**
    * 创建云层
    * @param cloudCoverParameter 云层参数
    * @param earthParameter 球体参数
    * @returns Mesh 云层
    */
-  createCloudCover(cloudCoverParameter: CloudCoverParameter, earthParameter: EarthParameter): THREE.Mesh | undefined
+  createCloudCover(cloudCoverParameter: CloudCoverParameter, earthParameter: EarthParameter): Promise<THREE.Mesh<THREE.BufferGeometry, THREE.Material | THREE.Material[]>>
   /**
    * 创建星空
    * @param starrySkyParameter 星空参数
    * @returns Points 星空
    */
-  createStarrySky(starrySkyParameter: StarrySkyParameter): THREE.Points | undefined
+  createStarrySky(starrySkyParameter: StarrySkyParameter): Promise<THREE.Points<THREE.BufferGeometry, THREE.Material | THREE.Material[]>>
 
   /**
    * 创建飞行线
