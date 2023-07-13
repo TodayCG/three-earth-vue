@@ -782,13 +782,12 @@ const beamScatterData = [
         starry-sky
         aperture
         cloud-cover
-        texture="earth03.png"
     >
         <te-earth-border type="china" />
         <te-earth-border type="world" color="#3ba3d1" />
         <te-earth-border type="china-border" color="#FF5823" :width="2" />
         <!-- 轨迹线 -->
-        <te-earth-line :data="lineData" color="#F8CE13" :width="2" />
+        <te-earth-line :data="lineData" color="#fff000" :width="3" />
         <!-- 发光柱 -->
         <te-earth-beam :data="beamScatterData" color="#00FFE5" />
     </te-earth>
