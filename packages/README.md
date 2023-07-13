@@ -16,7 +16,7 @@
 <p align="center">Vue3 3D Earth</p>
 
 <p style="text-align:center;">
-  <a><img src="/public/example01.png" width="24%" /></a>
+  <a><img src="../public/example01.png" width="24%" /></a>
   <a><img src="/public/example02.png" width="24%" /></a>
   <a><img src="/public/example03.png" width="24%" /></a>
   <a><img src="/public/example05.png" width="24%" /></a>
