@@ -263,10 +263,10 @@ const createEarth = (): void => {
     const main: HTMLElement = document.getElementById(uuid) as HTMLElement
     weiTuEarth = new Earth(main, parameter).start()
 }
-const createEarthBorder = (): void => {
+const createEarthBorder = async (): Promise<void> => {
     const borders: Array<any> = getSlotsByName('TeEarthBorder')
-    borders.forEach((border: any) => {
-        const propsType: string = border.props?.type || border.type.props.type.default
+    borders.forEach(async (border: any) => {
+        const propsGeojson: string = border.props?.geojson || border.type.props.geojson.default
         const borderParameter = {
             color: border.props?.color || border.type.props.color.default,
             lineWidth: border.props?.width || border.type.props.width.default,
@@ -277,7 +277,7 @@ const createEarthBorder = (): void => {
             // wakelineColors: border.props?.wakelineColors || border.type.props.wakelineColors.default,
         }
         console.log(border.props?.wakeline, borderParameter)
-        const BorderThree = weiTuEarth.createEarthBorder(propsType, borderParameter)
+        const BorderThree = await weiTuEarth.createEarthBorder(propsGeojson, borderParameter)
         weiTuEarth.earth.add(BorderThree)
     })
     console.log(earthParameter)

@@ -158,7 +158,7 @@ export declare interface EarthInterface {
    * @param borderParameter 描边参数
    * @returns Group 描边
    */
-  createEarthBorder(gis: any, borderParameter: BorderParameter): THREE.Group
+  createEarthBorder(gis: any, borderParameter: BorderParameter): Promise<THREE.Group>
   /**
    * 创建光晕
    * @param apertureParameter 光晕参数

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { TeEarth, TeEarthBeam, TeEarthBorder, TeEarthLine } from 'three-earth/packages/components'
+
 const lineData = [
     {
         fromName: '北京市',
@@ -783,9 +784,14 @@ const beamScatterData = [
         :aperture="true"
         cloud-cover
     >
-        <te-earth-border type="china" />
-        <te-earth-border type="world" color="#3ba3d1" />
-        <te-earth-border type="china-border" color="#FF5823" :width="2" />
+        <!-- <te-earth-border type="china" /> -->
+        <te-earth-border geojson="world" color="#3ba3d1" />
+        <te-earth-border
+            geojson="china-border"
+            color="#FF5823"
+            :width="2"
+            :wakeline="true"
+        />
         <!-- 轨迹线 -->
         <te-earth-line :data="lineData" color="#fff000" :width="3" />
         <!-- 发光柱 -->

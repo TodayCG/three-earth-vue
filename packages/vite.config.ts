@@ -14,12 +14,9 @@ export default defineConfig({
             fileName: (format) => `three-earth.${format}.ts`
         },
         rollupOptions: {
-            external: ['vue'],
+            external: ['vue', 'three'],
             output: {
-                exports: 'named',
-                globals: {
-                    vue: 'Vue'
-                }
+                exports: 'named'
             }
         }
     },

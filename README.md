@@ -30,6 +30,9 @@ This is a library for implementing 3D earth based on ThreeJs, suitable for Vue3,
 ## Installing
 
 ```shell
+# three install
+pnpm add three@0.135.0
+
 # npm
 npm install three-earth
 # yarn

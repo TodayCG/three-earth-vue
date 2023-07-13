@@ -28,8 +28,8 @@ export const startAnimationGradientLine = (animations: Array<any>) => {
         item.mesh.geometry.setPositions(
             item.linePointsV3
                 .slice(item.index, item.index + item.verticNum)
-                .reduce((arr, item) => {
-                    return arr.concat(item.x, item.y, item.z)
+                .reduce((arr, item2) => {
+                    return arr.concat(item2.x, item2.y, item2.z)
                 }, [])
         )
     })

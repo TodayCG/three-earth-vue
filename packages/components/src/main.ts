@@ -29,10 +29,6 @@ import { createComposer } from '../../utils/composer'
 import { DrawLine } from '../../utils/line2'
 import { createGradientLine, startAnimationGradientLine } from '../../utils/GradientLine'
 
-/**
- * 微兔可视化 | 3D地球
- * 黄保霖 2022年6月6日18:12:27
- */
 export class Earth extends Scene implements EarthInterface {
     name: string
     mesh!: THREE.Mesh
@@ -135,13 +131,11 @@ export class Earth extends Scene implements EarthInterface {
             earthParameter.subdivision,
             earthParameter.subdivision
         )
-
         let map = {}
         if (earthParameter.texture !== false) {
             const texture: string = earthParameter.texture === 'default' ? ((await import('./base64/Earth')).texture) : earthParameter.texture as string
             map = { map: new THREE.TextureLoader().load(texture) }
         }
-        console.log(map)
         this.material = new THREE.MeshStandardMaterial({
             ...map,
             color: new THREE.Color(earthParameter.color),
@@ -157,10 +151,19 @@ export class Earth extends Scene implements EarthInterface {
         return this.earth
     }
 
-    public createEarthBorder(gis: string, borderParameter: BorderParameter): THREE.Group {
-        const module = this.gis[`wt-${gis}`]
+    public async createEarthBorder(geojson: any, borderParameter: BorderParameter): Promise<THREE.Group> {
+        let module = geojson
+        if (geojson === 'china') {
+            module = (await import('./geojson/china')).default
+        }
+        if (geojson === 'china-border') {
+            module = (await import('./geojson/china-border')).default
+        }
+        if (geojson === 'world') {
+            module = (await import('./geojson/world')).default
+        }
         const mapGroup = new THREE.Group()
-        const testData = []
+        const coordinates = []
         module.features.forEach(item => {
             const lineGroup: THREE.Group = new THREE.Group()
             lineGroup.name = 'border' + item.properties.name
@@ -171,7 +174,7 @@ export class Earth extends Scene implements EarthInterface {
                         const coordinate: Array<THREE.Vector3> = print.map((pi: Array<number>) => {
                             return this.coordinateTransform(pi[0], pi[1])
                         })
-                        testData.push(coordinate)
+                        coordinates.push(coordinate)
                         lineGroup.add(DrawLine(coordinate, borderParameter))
                     } else {
                         osArea.push(this.coordinateTransform(print[0], print[1]))
@@ -185,7 +188,7 @@ export class Earth extends Scene implements EarthInterface {
         })
 
         if (borderParameter.wakeline) {
-            const curve = new THREE.CatmullRomCurve3(testData[0])
+            const curve = new THREE.CatmullRomCurve3(coordinates[0])
             const { animations, mesh } = createGradientLine(curve, borderParameter.wakelineNumber)
             this.animationGradientSegmentLine = animations
             mesh.forEach(element => {
@@ -193,7 +196,7 @@ export class Earth extends Scene implements EarthInterface {
             })
         }
 
-        mapGroup.name = gis
+        mapGroup.name = geojson
         return mapGroup
     }
 

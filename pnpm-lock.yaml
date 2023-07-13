@@ -14,9 +14,6 @@ importers:
       three:
         specifier: ^0.135.0
         version: registry.npmmirror.com/three@0.135.0
-      three-css2drender:
-        specifier: ^1.0.0
-        version: registry.npmmirror.com/three-css2drender@1.0.0(three@0.135.0)
       three-orbit-controls:
         specifier: ^82.1.0
         version: registry.npmmirror.com/three-orbit-controls@82.1.0
@@ -6034,17 +6031,6 @@ packages:
     name: text-table
     version: 0.2.0
     dev: true
-
-  registry.npmmirror.com/three-css2drender@1.0.0(three@0.135.0):
-    resolution: {integrity: sha512-redDCSBDvgxiJIm6EDT8WO5WJTVg5gUEy/vjtAgJa/zX4peEUnZ8K+mXo6v94EudbnuI5h48/hQo9NExf04ENg==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/three-css2drender/-/three-css2drender-1.0.0.tgz}
-    id: registry.npmmirror.com/three-css2drender/1.0.0
-    name: three-css2drender
-    version: 1.0.0
-    peerDependencies:
-      three: '>= 0.91'
-    dependencies:
-      three: registry.npmmirror.com/three@0.135.0
-    dev: false
 
   registry.npmmirror.com/three-orbit-controls@82.1.0:
     resolution: {integrity: sha512-hIWxGoHqIbeq0S2lA14m9VRzo7SamKKVJ9mKMT/rdh0Qa3nV5Umvhlx4zsHl0Y6jLKVZhjatJfeD/K08Tr/g4A==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/three-orbit-controls/-/three-orbit-controls-82.1.0.tgz}

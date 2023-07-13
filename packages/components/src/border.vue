@@ -1,13 +1,13 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
-  type?: string
+  propsGeojson?: 'world' | 'china-border' | 'china' | any
   color: string
   width: number
   opacity: number
   wakeline: boolean
   wakelineNumber: number
 }>(), {
-    type: 'world',
+    propsGeojson: 'world',
     color: '#ffffff',
     width: 1,
     opacity: 1,

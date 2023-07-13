@@ -1,10 +1,6 @@
 import * as THREE from 'three'
 import threeObtControls from 'three-orbit-controls'
 
-/**
- * THREE 控制器
- * 黄保霖 2022年6月6日18:12:27
- */
 export class ObtControls {
     OrbitControls: any
     Controls: any
