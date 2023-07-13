@@ -264,7 +264,7 @@ const createEarth = (): void => {
     weiTuEarth = new Earth(main, parameter).start()
 }
 const createEarthBorder = (): void => {
-    const borders: Array<any> = getSlotsByName('WtEarthBorder')
+    const borders: Array<any> = getSlotsByName('NiEarthBorder')
     borders.forEach((border: any) => {
         const propsType: string = border.props?.type || border.type.props.type.default
         const borderParameter = {
@@ -283,7 +283,7 @@ const createEarthBorder = (): void => {
     console.log(earthParameter)
 }
 const createEarthLine = (): void => {
-    const lines: Array<any> = getSlotsByName('WtEarthLine')
+    const lines: Array<any> = getSlotsByName('NiEarthLine')
     lines.forEach((border: any) => {
         const dataSource: Array<FlightLinesItem> = border.props?.data
         const flightLinesParameter: FlightLinesParameter = {
@@ -308,7 +308,7 @@ const createEarthLine = (): void => {
     })
 }
 const createEarthBeam = (): void => {
-    const Beams: Array<any> = getSlotsByName('WtEarthBeam')
+    const Beams: Array<any> = getSlotsByName('NiEarthBeam')
     Beams.forEach((beam: any) => {
         const dataSource: Array<LightBeamScatterItem> = beam.props?.data || beam.type.props.data.default
 

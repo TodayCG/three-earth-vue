@@ -1,22 +1,22 @@
 import { App, Plugin } from 'vue'
 
-import WtEarth from './src/main.vue'
-import WtEarthBorder from './src/border.vue'
-import WtEarthLine from './src/line.vue'
-import WtEarthBeam from './src/beam.vue'
+import NiEarth from './src/main.vue'
+import NiEarthBorder from './src/border.vue'
+import NiEarthLine from './src/line.vue'
+import NiEarthBeam from './src/beam.vue'
 
-WtEarth.name = 'WtEarth'
-WtEarthBorder.name = 'WtEarthBorder'
-WtEarthLine.name = 'WtEarthLine'
-WtEarthBeam.name = 'WtEarthBeam'
+NiEarth.name = 'NiEarth'
+NiEarthBorder.name = 'NiEarthBorder'
+NiEarthLine.name = 'NiEarthLine'
+NiEarthBeam.name = 'NiEarthBeam'
 
 export const EarthPlugin: Plugin = {
     install(app: App) {
-        app.component(WtEarth.name, WtEarth)
-        app.component(WtEarthBorder.name, WtEarthBorder)
-        app.component(WtEarthLine.name, WtEarthLine)
-        app.component(WtEarthBeam.name, WtEarthBeam)
+        app.component(NiEarth.name, NiEarth)
+        app.component(NiEarthBorder.name, NiEarthBorder)
+        app.component(NiEarthLine.name, NiEarthLine)
+        app.component(NiEarthBeam.name, NiEarthBeam)
     }
 }
 
-export { WtEarth, WtEarthBorder, WtEarthLine, WtEarthBeam }
+export { NiEarth, NiEarthBorder, NiEarthLine, NiEarthBeam }
