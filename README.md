@@ -15,8 +15,14 @@
 
 <p align="center">Vue3 3D Earth</p>
 
-- 💪 Support vue3
-- 🔥 Support a variety of 3D earth scenes, sci-fi, realistic, etc.
+<p style="text-align:center;">
+  <a><img src="/public/example01.png" width="24%" /></a>
+  <a><img src="/public/example02.png" width="24%" /></a>
+  <a><img src="/public/example03.png" width="24%" /></a>
+  <a><img src="/public/example05.png" width="24%" /></a>
+  <a><img src="/public/example04.png" width="24%" /></a>
+  <a><img src="/public/example06.png" width="24%" /></a>
+</p>
 
 This is a library for implementing 3D earth based on ThreeJs, suitable for Vue3, which contains earth textures, muddy light, animation, background, halo, starry sky, clouds, light source, geojson, map border, beam of light, scatter, flight line etc.
 
@@ -64,11 +70,3 @@ import { ThEarth, ThEarthBorder, ThEarthLine, ThEarthBeam } from 'three-earth'
 ...
 ```
 
-<p style="text-align:center;">
-  <a><img src="/public/example01.png" width="24%" /></a>
-  <a><img src="/public/example02.png" width="24%" /></a>
-  <a><img src="/public/example03.png" width="24%" /></a>
-  <a><img src="/public/example05.png" width="24%" /></a>
-  <a><img src="/public/example04.png" width="24%" /></a>
-  <a><img src="/public/example06.png" width="24%" /></a>
-</p>
