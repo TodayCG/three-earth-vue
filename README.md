@@ -44,7 +44,7 @@ import { TeEarth } from 'three-earth'
 
 ## Documentation
 
-(asda)[/docs/earth.md]
+!(asda)[/docs/earth.md]
 
 ## import on demand
 If you only want to import the components you `need`, you can use the on-demand import method.
