@@ -1,6 +1,7 @@
 import { v4 } from 'uuid'
 import * as THREE from 'three'
 import { Line2 } from 'three/examples/jsm/lines/Line2'
+// import gsap from 'gsap'
 
 import { EarthInterface } from './interface'
 import {
